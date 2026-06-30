@@ -35,7 +35,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '$(Build.Repository.LocalPath)
+    workingDir: '$(Build.Repository.LocalPath)'
     customCommand: 'run build export $(Build.Repository.LocalPath)/ /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)  "ArmTemplate"'
 
 # Publish the artifact to be used as a source for a release pipeline.
