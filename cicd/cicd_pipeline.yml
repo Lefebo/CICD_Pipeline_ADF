@@ -2,20 +2,22 @@ trigger:
 - main
 
 pool:
-    vmImage: "ubuntu-latest"
+  vmImage: "ubuntu-latest"
 
 stages:
+
+# Build ARM Template
 - stage: BuildARMTemplate
-  displayName: "Build Arm Template" 
+  displayName: "Build ARM Template"
 
   variables:
-  - group: devGroup
+  - group: devgroup
 
   jobs:
   - job: BuildARM
     displayName: "Build ARM"
     steps:
-    - template: CI_build.yml
+    - template: ci_build.yml
       parameters:
         DataFactory: $(DataFactory)
         ResourceGroup: $(ResourceGroup)
