@@ -6,10 +6,9 @@ pool:
 
 stages:
 - stage: BuildARMTemplate
-  displayName: "Build Arm Template"
+  displayName: "Build Arm Template" 
 
-# Load Variables defined 
-- variables:
+  variables:
   group: groupdev
 
   jobs:
