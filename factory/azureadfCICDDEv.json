@@ -1,0 +1,15 @@
+{
+	"name": "azureadfCICDDEv",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "polandcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b89910f3-3d6c-4983-b258-3e2a1bfe0f42",
+		"tenantId": "8b1cc1a1-512c-4628-a8ed-27288c8fcbb0"
+	}
+}
