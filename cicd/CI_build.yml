@@ -1,0 +1,21 @@
+parameters:
+- name: DataFactory
+  type: string
+- name: ResourceGroup
+  type: string
+- name: SubscriptionId
+
+steps:
+
+
+- task: UseNode@1
+  inputs:
+    version: '18.x'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+    verbose: true
+  displayName: 'Install npm package'
