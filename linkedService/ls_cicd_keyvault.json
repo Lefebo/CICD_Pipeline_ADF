@@ -1,0 +1,10 @@
+{
+	"name": "ls_cicd_keyvault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://keyvaultAmanuel.vault.azure.net/"
+		}
+	}
+}

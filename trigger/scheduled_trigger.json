@@ -1,0 +1,24 @@
+{
+	"name": "scheduled_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "cicd_project",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-06-30T14:41:00",
+				"timeZone": "Central European Standard Time"
+			}
+		}
+	}
+}

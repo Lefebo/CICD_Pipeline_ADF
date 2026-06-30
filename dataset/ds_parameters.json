@@ -1,0 +1,19 @@
+{
+	"name": "ds_parameters",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_cicd_project_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "cicd_project.json",
+				"fileSystem": "config"
+			}
+		},
+		"schema": {}
+	}
+}
