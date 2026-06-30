@@ -15,7 +15,7 @@ stages:
   - job: BuildARM
     displayName: "Build ARM"
     steps:
-    - template: ci_build.yml
+    - template: CI_build.yml
       parameters:
         DataFactory: $(DataFactory)
         ResourceGroup: $(ResourceGroup)
