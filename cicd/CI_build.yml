@@ -7,9 +7,11 @@ parameters:
   type: string
 
 steps:
-- task: UseNode@1
+
+# Install node 
+- task: NodeTool@0
   inputs:
-    version: '6.14.4'
+    versionSpec: '18.x'
   displayName: 'Install Node.js'
 
 - task: Npm@1
@@ -19,21 +21,24 @@ steps:
     verbose: true
   displayName: 'Install npm package'
 
-# Validate 
+# Validate
+
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '$(Build.Repository.LocalPath)'
-    customCommand: 'run build validate$(Build.Repository.LocalPath)/subscriptions/${{ parameters.SubscriptionId }}/resourceGroups/${{ parameters.ResourceGroup }}/providers/Microsoft.DataFactory/factories/${{ parameters.DataFactory }}'
+    workingDir: '$(Build.Repository.LocalPath)' 
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)'
     displayName: 'Validate'
 
+
 # Validate and then generate the ARM template
+
 - task: Npm@1
   inputs:
     command: 'custom'
     workingDir: '$(Build.Repository.LocalPath)'
-    customCommand: 'run build export $(Build.Repository.LocalPath)/ /subscriptions/${{ parameters.SubscriptionId }}/resourceGroups/${{ parameters.ResourceGroup }}/providers/Microsoft.DataFactory/factories/${{ parameters.DataFactory }} "ArmTemplate"'
-  displayName: 'Validate and Generate ARM template'
+    customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)  "ArmTemplate"'
+
 # Publish the artifact to be used as a source for a release pipeline.
 
 - task: PublishPipelineArtifact@1
