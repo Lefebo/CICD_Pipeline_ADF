@@ -4,14 +4,13 @@ parameters:
 - name: ResourceGroup
   type: string
 - name: SubscriptionId
-  type: string
 
 steps:
 
-# Install node 
-- task: NodeTool@0
+
+- task: UseNode@1
   inputs:
-    versionSpec: '18.x'
+    version: '18.x'
   displayName: 'Install Node.js'
 
 - task: Npm@1
@@ -27,7 +26,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(Build.Repository.LocalPath)' 
-    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)'
+    customCommand: 'run build validate $(Build.Repository.LocalPath)/ /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)'
     displayName: 'Validate'
 
 
@@ -37,7 +36,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(Build.Repository.LocalPath)'
-    customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)  "ArmTemplate"'
+    customCommand: 'run build export $(Build.Repository.LocalPath)/ /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)  "ArmTemplate"'
 
 # Publish the artifact to be used as a source for a release pipeline.
 
