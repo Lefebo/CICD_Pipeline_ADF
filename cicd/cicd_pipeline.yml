@@ -79,7 +79,7 @@ stages:
   jobs:
   - deployment: DeployToPD
     displayName: "Deploy To Production"
-    environment: 'pd' # This links to the Environment in Pipelines > Environments
+    environment: 'prod' # This links to the Environment in Pipelines > Environments
     strategy:
       runOnce:
         deploy:
