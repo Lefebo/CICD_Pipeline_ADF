@@ -78,7 +78,7 @@ stages:
   - group: prodGroup
 
   jobs:
-  - deployment: DeployToPD
+  - deployment: DeployToPROD
     displayName: "Deploy To Production"
     environment: 'prod' # This links to the Environment in Pipelines > Environments
     strategy:
