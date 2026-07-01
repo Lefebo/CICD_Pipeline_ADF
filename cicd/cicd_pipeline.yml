@@ -22,3 +22,74 @@ stages:
         DataFactory: $(DataFactory)
         ResourceGroup: $(ResourceGroup)
         SubscriptionId: $(SubscriptionId)
+
+
+# DEPLOY TO DEV
+- stage: DeployToDEV
+  dependsOn: BuildARMTemplate
+  condition: succeeded()
+  displayName: "Deploy To DEV"
+
+  variables:
+  - group: devGroup
+
+  jobs:
+  - job: DeployToDEV
+    displayName: "Deploy To DEV"
+    steps:
+    - template: cd_deploy.yml
+      parameters:
+        AzureResourceManagerConnection: adf-azure-service-connection
+        DataFactory: $(DataFactory)
+        SubscriptionId: $(SubscriptionId)
+        ResourceGroup: $(ResourceGroup)
+        Environment: dev
+
+
+# DEPLOY TO QA
+- stage: DeployToQA
+  dependsOn: BuildARMTemplate
+  condition: succeeded()
+  displayName: "Deploy To QA"
+
+  variables:
+  - group: qaGroup
+
+  jobs:
+  - job: DeployToQA
+    displayName: "Deploy To QA"
+    steps:
+    - template: cd_deploy.yml
+      parameters:
+        AzureResourceManagerConnection: adf-azure-service-connection
+        DataFactory: $(DataFactory)
+        SubscriptionId: $(SubscriptionId)
+        ResourceGroup: $(ResourceGroup)
+        Environment: qa
+
+
+# DEPLOY TO PD (Production) With Approval Gate
+- stage: DeployToPROD
+  dependsOn: DeployToQA
+  condition: succeeded()
+  displayName: "Deploy To Production"
+
+  variables:
+  - group: prodGroup
+
+  jobs:
+  - deployment: DeployToPD
+    displayName: "Deploy To Production"
+    environment: 'prod' # This links to the Environment in Pipelines > Environments
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - template: cd_deploy.yml
+            parameters:
+              AzureResourceManagerConnection: adf-azure-service-connection
+              DataFactory: $(DataFactory)
+              SubscriptionId: $(SubscriptionId)
+              ResourceGroup: $(ResourceGroup)
+              Environment: prod
