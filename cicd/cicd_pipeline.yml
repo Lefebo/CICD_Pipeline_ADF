@@ -67,6 +67,7 @@ stages:
         ResourceGroup: $(ResourceGroup)
         Environment: qa
 
+
 # DEPLOY TO PD (Production) With Approval Gate
 - stage: DeployToPROD
   dependsOn: DeployToQA
