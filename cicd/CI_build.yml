@@ -24,8 +24,8 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(Build.Repository.LocalPath)'
-    customCommand: 'run build validate $(Build.Repository.LocalPath)/ /subscriptions/${{ parameters.SubscriptionId }}/resourceGroups/${{ parameters.ResourceGroup }}/providers/Microsoft.DataFactory/factories/${{ parameters.DataFactory }}'
-  displayName: 'Validate'
+    customCommand: >run build validate$(Build.Repository.LocalPath)/subscriptions/${{ parameters.SubscriptionId }}/resourceGroups/${{ parameters.ResourceGroup }}/providers/Microsoft.DataFactory/factories/${{ parameters.DataFactory }}
+    displayName: 'Validate'
 
 # Validate and then generate the ARM template
 - task: Npm@1
