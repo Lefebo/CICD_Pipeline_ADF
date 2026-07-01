@@ -9,7 +9,7 @@ parameters:
   type: string
 - name: Environment
   type: string
-  
+
 steps:
 
 # Download Artifacts
@@ -44,7 +44,7 @@ steps:
     subscriptionId: ${{ parameters.SubscriptionId }}
     action: 'Create Or Update Resource Group'
     resourceGroupName: ${{ parameters.ResourceGroup }}
-    location: 'canadacentral'
+    location: 'polandcentral'
     templateLocation: 'Linked artifact'
     csmFile: '$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json'
     csmParametersFile: '$(Build.Repository.LocalPath)/cicd/ARMParams/${{ parameters.Environment }}.json'
