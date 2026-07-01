@@ -4,10 +4,9 @@ parameters:
 - name: ResourceGroup
   type: string
 - name: SubscriptionId
+  type: string
 
 steps:
-
-
 - task: UseNode@1
   inputs:
     version: '18.x'
