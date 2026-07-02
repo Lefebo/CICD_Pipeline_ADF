@@ -95,6 +95,43 @@ Deploy to Prod
 4. YAML Pipelines
 5. Azure Resource Manager
 6. Git (Source Control)
+# 📁 Project Structure
+cicd/
+├── README.md                          # Project documentation
+├── .gitignore                         # Git ignore rules
+├── package.json                       # Node.js dependencies (ADF utilities)
+│
+├── build/                             # Generated artifacts (DO NOT EDIT)
+│   └── arm-templates/                 # Published ARM templates from ADF
+│       ├── ARMTemplateForFactory.json
+│       └── ARMTemplateParameters.json
+│
+├── src/                               # ADF source code (Git mode)
+│   ├── pipelines/                     # Pipeline JSON definitions
+│   ├── datasets/                      # Dataset definitions
+│   ├── linkedServices/                # Linked services
+│   ├── dataflows/                     # Mapping data flows
+│   ├── triggers/                      # Trigger definitions
+│   ├── integrationRuntimes/           # IR configurations
+│   └── factories/                     # Factory metadata
+│
+├── cicd/                              # CI/CD configuration folder
+│   ├── ARMParams/                     # Environment-specific parameters
+│   │   ├── dev.json
+│   │   ├── qa.json
+│   │   └── prod.json
+│   │
+│   ├── pipelines/                     # Azure DevOps pipelines
+│   │   ├── ci_build.yml               # CI pipeline (validate + build)
+│   │   ├── cd_deploy.yml              # CD pipeline (deploy)
+│   │   └── cicd_pipeline.yml          # End-to-end pipeline
+│
+├── scripts/                           # Deployment automation scripts
+│   ├── deploy.ps1                     # Deploy ARM templates
+│   ├── validate.ps1                   # Validate ARM templates
+│   └── rollback.ps1                   # Rollback deployment
+│
+└── azure-pipelines.yml (optional)     # Root pipeline entry (if not using cicd folder)
 
 👤 Author
 
