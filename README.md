@@ -45,12 +45,12 @@ Responsibilities:
 Orchestrates CI → CD flow
 Supports multi-stage deployments
 Handles approvals (QA → Prod gates)
-🌍 Environments
-Environment	Purpose	Parameter File
-Dev	Development & testing	dev.json
-QA	Validation & UAT	qa.json
-Prod	Production workloads	prod.json
-🔐 Prerequisites
+# 🌍 Environments
+Environment	Purpose	Parameter                   File
+Dev	                  Development & testing	    dev.json
+QA	                  Validation & UAT	          qa.json
+Prod	                  Production workloads	    prod.json
+# 🔐 Prerequisites
 
 Before running pipelines, ensure:
 
