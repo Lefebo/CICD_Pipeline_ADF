@@ -88,9 +88,13 @@ Deploy to Prod
 ✔ Azure DevOps YAML-based pipelines
 ✔ Scalable CI/CD design for enterprise workloads
 # Technologies Used
-Azure Data Factory (ADF)
-Azure DevOps Pipelines
-ARM Templates
-YAML Pipelines
-Azure Resource Manager
-Git (Source Control)
+1. Azure Data Factory (ADF)
+2. Azure DevOps Pipelines
+3. ARM Templates
+4. YAML Pipelines
+5. Azure Resource Manager
+6. Git (Source Control)
+
+👤 Author
+
+Maintained by: Amanuel Lefebo
