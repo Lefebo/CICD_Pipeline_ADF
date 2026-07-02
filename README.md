@@ -96,42 +96,32 @@ Deploy to Prod
 5. Azure Resource Manager
 6. Git (Source Control)
 ## 📁 Project Structure
+```
 cicd/
-├── README.md                          # Project documentation
+├── README.md                          # This file
+├── package.json                       # Node.js project configuration
 ├── .gitignore                         # Git ignore rules
-├── package.json                       # Node.js dependencies (ADF utilities)
-│
-├── build/                             # Generated artifacts (DO NOT EDIT)
-│   └── arm-templates/                 # Published ARM templates from ADF
-│       ├── ARMTemplateForFactory.json
-│       └── ARMTemplateParameters.json
-│
-├── src/                               # ADF source code (Git mode)
-│   ├── pipelines/                     # Pipeline JSON definitions
-│   ├── datasets/                      # Dataset definitions
-│   ├── linkedServices/                # Linked services
-│   ├── dataflows/                     # Mapping data flows
-│   ├── triggers/                      # Trigger definitions
-│   ├── integrationRuntimes/           # IR configurations
-│   └── factories/                     # Factory metadata
-│
-├── cicd/                              # CI/CD configuration folder
-│   ├── ARMParams/                     # Environment-specific parameters
-│   │   ├── dev.json
-│   │   ├── qa.json
-│   │   └── prod.json
-│   │
-│   ├── pipelines/                     # Azure DevOps pipelines
-│   │   ├── ci_build.yml               # CI pipeline (validate + build)
-│   │   ├── cd_deploy.yml              # CD pipeline (deploy)
-│   │   └── cicd_pipeline.yml          # End-to-end pipeline
-│
-├── scripts/                           # Deployment automation scripts
-│   ├── deploy.ps1                     # Deploy ARM templates
-│   ├── validate.ps1                   # Validate ARM templates
-│   └── rollback.ps1                   # Rollback deployment
-│
-└── azure-pipelines.yml (optional)     # Root pipeline entry (if not using cicd folder)
+├── build/                             # Build output directory
+│   └── (generated ARM templates)
+├── src/                               # Source code
+│   ├── dataflows/                    # Data flow definitions
+│   ├── datasets/                     # Dataset configurations
+│   ├── factories/                    # Factory configurations
+│   ├── integrationruntimes/          # Integration runtime configs
+│   ├── linkedservices/               # Linked service definitions
+│   ├── pipelines/                    # Pipeline definitions
+│   └── triggers/                     # Trigger configurations
+├── templates/                         # ARM templates
+│   ├── arm-template.json
+│   ├── parameters-dev.json
+│   ├── parameters-staging.json
+│   └── parameters-prod.json
+├── scripts/                          # Deployment scripts
+│   ├── deploy.ps1
+│   ├── validate.ps1
+│   └── rollback.ps1
+└── azure-pipelines.yml               # CI/CD configuration
+```
 
 👤 Author
 
