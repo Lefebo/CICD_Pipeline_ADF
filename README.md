@@ -95,7 +95,7 @@ Deploy to Prod
 4. YAML Pipelines
 5. Azure Resource Manager
 6. Git (Source Control)
-# 📁 Project Structure
+## 📁 Project Structure
 cicd/
 ├── README.md                          # Project documentation
 ├── .gitignore                         # Git ignore rules
