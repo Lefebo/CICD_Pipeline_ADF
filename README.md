@@ -1,6 +1,8 @@
 # ADF CI/CD Pipeline – Azure DevOps
 # 📌 Overview
-CI/CD in Azure Data Factory (ADF) using Azure DevOps is a process where you develop and test pipelines in the Dev environment, store them in a Git repository, and then automatically validate and deploy them to other environments like QA and Prod. Continuous Integration (CI) ensures that every change is validated and converted into deployable ARM templates, while Continuous Deployment (CD) uses these templates to reliably move changes across environments using parameter files such as dev.json, qa.json, and prod.json, ensuring consistent and automated releases without manual intervention.
+CI/CD in Azure Data Factory (ADF) using Azure DevOps is a process where you develop and test pipelines in the Dev environment, store them in a Git repository, and then automatically validate and deploy them to other environments like QA and Prod. Continuous Integration (CI) ensures that every change is validated and converted into deployable ARM templates, while Continuous Deployment (CD) uses these templates to reliably move changes across environments using parameter files such as dev.json, qa.json, and prod.json, ensuring consistent and automated releases without manual intervention.<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0ab9d2bf-bd2d-43a5-a57e-fa430e94f2bc" />
+
+
 
 🟦 Development (Dev)
 🟨 Testing / QA
